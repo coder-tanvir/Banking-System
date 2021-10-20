@@ -3,16 +3,51 @@
 using namespace std;
 
 class Bank{
-    private:
-        string name;
-        string address;
+        char name[70];
+        char address[70];
+        float balance;
+        float deposit;
+        float withdrawal;
+    public:
         
+        char* getname();
+        char* getaddress();
+        float getbalance();
+        void openaccount();
+
 };
 
-int main(){
-    printf("How about that");
-    char name[100];
-    cout<<"Please Enter your name"<<endl;
+void Bank::openaccount(){
+    cout<<"Please enter your Name"<<endl;
+    
     cin.getline(name,100);
-    cout<<"Your name is"<< name<<endl;
+    
+    cout<<"Please enter your Full Address"<<endl;
+    cin.ignore();
+    cin.getline(address,70);
+
+    cout<<"Please enter the amount($) you want to deposit"<<endl;
+    cin.ignore();
+    cin>>balance;   
+}
+
+char* Bank::getname( ){
+    return name;
+}
+
+float Bank::getbalance(){
+    return balance;
+}
+
+char* Bank::getaddress(){
+    return address;
+}
+int main(){
+    
+    Bank obj1;
+    obj1.openaccount();
+    cout<< obj1.getname();
+    cout<<obj1.getbalance();
+    cout<<obj1.getaddress();
+    
 }
