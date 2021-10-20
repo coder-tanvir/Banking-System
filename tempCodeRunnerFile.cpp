@@ -6,8 +6,8 @@ class Bank{
         char name[70];
         char address[70];
         float balance;
-        float withdraw;
-        float deposit;
+        float withdraw=0;
+        float deposit=0;
         
     
     public:
@@ -41,11 +41,12 @@ void Bank::depositmoney(){
 }
 
 void Bank::openaccount(){
-    cout<<"Please enter your Name"<<endl;
-    cin.getline(name,100);
-    
     cout<<"Please enter your Full Address"<<endl;
+    cin.ignore();
     cin.getline(address,70);
+
+    cout<<"Please enter your Name"<<endl;
+    cin.getline(name,70);
 
     cout<<"Please enter the amount($) you want to deposit"<<endl;
     cin>>balance;   
@@ -56,29 +57,27 @@ void Bank::withdrawwmoney(){
     cout<<"How much you want to withdraw"<<endl;
     cin>>withdraw;
     balance=balance-withdraw;
+    cout<<"Your balance is"<< balance<<endl;
 }
 void Bank::accountdetails(){
     cout<<"Name: "<<this->name<<endl;
     cout<<"Address: "<<this->address<<endl;
-    cout<<"Your current balance"<<this->balance<<endl;
-    cout<<"Your last withdraw"<<this->withdraw<<endl;
-    cout<<"Your last deposit"<<this->deposit<<endl;
-
+    cout<<"Your current balance "<<this->balance<<endl;
+    cout<<"Your last withdraw "<<this->withdraw<<endl;
+    cout<<"Your last deposit "<<this->deposit<<endl;
+    cout<<"Your balance is "<< balance<<endl;
 }
 int main(){
     
-    Bank obj1;
-    obj1.openaccount();
-    cout<< obj1.getname();
-    cout<<obj1.getbalance();
-    cout<<obj1.getaddress();
-    cout<<endl;
-    obj1.depositmoney();
-    cout<<endl;
-    obj1.withdrawwmoney();
-    cout<<endl;
-    cout<<obj1.getbalance();
-    cout<<"Here is your latest Account details"<<endl;
-    obj1.accountdetails();
+Bank obj;
+int choice;
+cout<<"Enter Menu number"<<endl;
+cin>>choice;
+    if(choice==1){
+        obj.openaccount();
+        obj.depositmoney();
+        obj.accountdetails();
+    } 
+return 0;
     
 }

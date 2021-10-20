@@ -6,8 +6,8 @@ class Bank{
         char name[70];
         char address[70];
         float balance;
-        float withdraw;
-        float deposit;
+        float withdraw=0;
+        float deposit=0;
         
     
     public:
@@ -34,6 +34,7 @@ char* Bank::getaddress(){
 }
 
 void Bank::depositmoney(){
+    cout<<"Welcome to the deposit Tab"<<endl;
     float amount;
     cout<<"How Much You want to deposit in $"<<endl;
     cin>>deposit;
@@ -41,9 +42,11 @@ void Bank::depositmoney(){
 }
 
 void Bank::openaccount(){
+    cout<<"Let's open an account"<<endl;
     cout<<"Please enter your Name"<<endl;
-    cin.getline(name,100);
-    
+    cin.ignore();
+    cin.getline(name,70);
+
     cout<<"Please enter your Full Address"<<endl;
     cin.getline(address,70);
 
@@ -52,24 +55,33 @@ void Bank::openaccount(){
 }
 
 void Bank::withdrawwmoney(){
+    cout<<"Welcome to the Money withdrawal tab"<<endl;
     float amount;
     cout<<"How much you want to withdraw"<<endl;
     cin>>withdraw;
     balance=balance-withdraw;
+    cout<<"Your balance is"<< balance<<endl;
 }
+
 void Bank::accountdetails(){
     cout<<"Name: "<<this->name<<endl;
     cout<<"Address: "<<this->address<<endl;
-    cout<<"Your current balance"<<this->balance<<endl;
-    cout<<"Your last withdraw"<<this->withdraw<<endl;
-    cout<<"Your last deposit"<<this->deposit<<endl;
-
+    cout<<"Your current balance "<<this->balance<<endl;
+    cout<<"Your last withdraw "<<this->withdraw<<endl;
+    cout<<"Your last deposit "<<this->deposit<<endl;
+    cout<<"Your balance is "<< balance<<endl;
 }
 int main(){
     
-    Bank obj1;
-    cout<<"-------------------Welcome To Banking App----------------------"<<endl;
-    cout<<"---------------------------------------------------------------"<<endl;
-    cout<<"Please Choose an option below"<<endl;
+Bank obj;
+int choice;
+cout<<"Enter Menu number"<<endl;
+cin>>choice;
+    if(choice==1){
+        obj.openaccount();
+        obj.depositmoney();
+        obj.accountdetails();
+    } 
+return 0;
     
 }
