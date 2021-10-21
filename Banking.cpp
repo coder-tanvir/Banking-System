@@ -75,13 +75,34 @@ int main(){
     
 Bank obj;
 int choice;
-cout<<"Enter Menu number"<<endl;
-cin>>choice;
-    if(choice==1){
-        obj.openaccount();
-        obj.depositmoney();
-        obj.accountdetails();
-    } 
+cout<<"---------------Welcome to BC Banking-----------------------"<<endl;
+cout<<"==========================================================="<<endl;
+cout<<"==========================================================="<<endl;
+cout<<"------------Displaying Menu--------------------"<<endl;
+cout<<"Open an Account ==== Press 1"<<endl;
+cout<<"Deposit Money==== Press 2"<<endl;
+cout<<"Withdraw Money ==== Press 3"<<endl;
+cout<<"Account Details ==== Press 4"<<endl;
+bool runner=true;
+while(runner){
+    cout<<"Enter Menu number"<<endl;
+    cin>>choice;
+        if(choice==1){
+            obj.openaccount();
+        } 
+        else if(choice==2){
+            obj.depositmoney();
+        }
+        else if(choice ==3){
+            obj.withdrawwmoney();
+        }
+        else if(choice==4){
+            obj.accountdetails();
+        }else{
+            runner=false;
+        }
+}
+
 return 0;
     
 }

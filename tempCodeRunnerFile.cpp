@@ -34,6 +34,7 @@ char* Bank::getaddress(){
 }
 
 void Bank::depositmoney(){
+    cout<<"Welcome to the deposit Tab"<<endl;
     float amount;
     cout<<"How Much You want to deposit in $"<<endl;
     cin>>deposit;
@@ -41,24 +42,27 @@ void Bank::depositmoney(){
 }
 
 void Bank::openaccount(){
-    cout<<"Please enter your Full Address"<<endl;
-    cin.ignore();
-    cin.getline(address,70);
-
+    cout<<"Let's open an account"<<endl;
     cout<<"Please enter your Name"<<endl;
+    cin.ignore();
     cin.getline(name,70);
+
+    cout<<"Please enter your Full Address"<<endl;
+    cin.getline(address,70);
 
     cout<<"Please enter the amount($) you want to deposit"<<endl;
     cin>>balance;   
 }
 
 void Bank::withdrawwmoney(){
+    cout<<"Welcome to the Money withdrawal tab"<<endl;
     float amount;
     cout<<"How much you want to withdraw"<<endl;
     cin>>withdraw;
     balance=balance-withdraw;
     cout<<"Your balance is"<< balance<<endl;
 }
+
 void Bank::accountdetails(){
     cout<<"Name: "<<this->name<<endl;
     cout<<"Address: "<<this->address<<endl;
@@ -71,13 +75,34 @@ int main(){
     
 Bank obj;
 int choice;
-cout<<"Enter Menu number"<<endl;
-cin>>choice;
-    if(choice==1){
-        obj.openaccount();
-        obj.depositmoney();
-        obj.accountdetails();
-    } 
+cout<<"---------------Welcome to BC Banking-----------------------"<<endl;
+cout<<"==========================================================="<<endl;
+cout<<"==========================================================="<<endl;
+cout<<"------------Displaying Menu--------------------"<<endl;
+cout<<"Open an Account ==== Press 1"<<endl;
+cout<<"Deposit Money==== Press 2"<<endl;
+cout<<"Withdraw Money ==== Press 3"<<endl;
+cout<<"Account Details ==== Press 4"<<endl;
+bool runner=true;
+while(runner){
+    cout<<"Enter Menu number"<<endl;
+    cin>>choice;
+        if(choice==1){
+            obj.openaccount();
+        } 
+        else if(choice==2){
+            obj.depositmoney();
+        }
+        else if(choice ==3){
+            obj.withdrawwmoney();
+        }
+        else if(choice==4){
+            obj.accountdetails();
+        }else{
+            runner=false;
+        }
+}
+
 return 0;
     
 }
